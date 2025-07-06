@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script src="animations.js" defer></script>
+    <!-- <script src="enhanced-animations.js" defer></script> -->
+  </head>
+  <body>
+    <section id="hero">
+      <img src="hero_photo-mobile.png" alt="hero" class="hero-photo hero-photo-mobile fade-in" />
+      <img src="hero_photo.jpg" alt="hero" class="hero-photo hero-photo-desktop fade-in" />
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title fade-in">
+            Дорогие родные <br />
+            и близкие!
+          </h1>
+          <p class="hero-text fade-in delay-1">
+            Мы приглашаем вас провести с нами этот <br />
+            чудесный день - День нашей Свадьбы!
+          </p>
+          <div class="hero-date scale-in delay-2">
+            <p class="month">
+              <span>Июль</span>
+            </p>
+            <p class="day">
+              <span>20</span>
+            </p>
+            <p class="year">
+              <span>2025</span>
+            </p>
+          </div>
+          <div class="hero-location fade-in delay-3">
+            <div class="hero-location-item slide-in-left delay-4">
+              <div class="hero-location-item-top">
+                <img src="location-icon.svg" alt="location" />
+                <p>Дворец бракосочетания</p>
+              </div>
+              <div class="hero-location-item-bottom">
+                <p>Время регистрации:</p>
+                <p>10:20</p>
+              </div>
+            </div>
+            <div class="hero-location-item slide-in-right delay-5">
+              <div class="hero-location-item-top">
+                <img src="location-icon.svg" alt="location" />
+                <p>Дом отдыха “Слобода”</p>
+              </div>
+              <div class="hero-location-item-bottom">
+                <p>Праздничный ужин:</p>
+                <p>16:00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="registry">
+      <div class="container">
+        <div class="registry-content fade-in">
+          <h2 class="registry-title slide-in-left delay-1">Торжественная регистрация</h2>
+          <img src="registry_map.jpg" alt="registry" class="registry-map scale-in delay-2" />
+        </div>
+      </div>
+    </section>
+    <section id="dinner">
+      <div class="container">
+        <div class="dinner-content fade-in">
+          <h2 class="dinner-title slide-in-right delay-1">Праздничный ужин</h2>
+          <img src="dinner_map.jpg" alt="dinner" class="dinner-map scale-in delay-2" />
+        </div>
+      </div>
+    </section>
+
+    <section id="form">
+      <div class="container">
+        <div class="form-content fade-in">
+          <h2 class="form-title scale-in delay-1">Анкета</h2>
+          <h3 class="slide-in-left delay-2">
+            Чтобы сделать празднование более комфортным, <br />
+            пожалуйста, заполните данную анкету <br />
+            и подтвердите свое присутствие
+          </h3>
+
+          <script src="https://forms.yandex.ru/_static/embed.js"></script>
+          <iframe
+            src="https://forms.yandex.ru/u/68604e1902848fedca1aefed?iframe=1"
+            frameborder="0"
+            name="ya-form-68604e1902848fedca1aefed"
+            width="650"
+            height="1000"
+            class="form-iframe scale-in delay-3"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

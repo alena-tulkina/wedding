@@ -1,0 +1,622 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #faebec;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  padding-bottom: 320px;
+  background-image: url(bg_pattern.svg);
+  background-size: 100% auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+/* Анимации для элементов */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Задержки для последовательных анимаций */
+.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.delay-4 {
+  transition-delay: 0.4s;
+}
+
+.delay-5 {
+  transition-delay: 0.5s;
+}
+
+/* Дополнительные нежные эффекты */
+.hero-photo {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Улучшенные тени для анимированных элементов */
+.fade-in.visible,
+.slide-in-left.visible,
+.slide-in-right.visible,
+.scale-in.visible {
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+}
+
+/* Специальные эффекты для hero секции */
+.hero-content {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 30px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Плавные переходы для всех интерактивных элементов */
+.hero-location-item,
+.registry-content,
+.dinner-content,
+.form-content {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-location-item:hover,
+.registry-content:hover,
+.dinner-content:hover,
+.form-content:hover {
+  transform: translateY(-3px);
+}
+
+/* Финальные нежные эффекты */
+.hero-title span,
+.registry-title span,
+.dinner-title span,
+.form-title span {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-title.visible span,
+.registry-title.visible span,
+.dinner-title.visible span,
+.form-title.visible span {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Нежные градиенты для фона */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 182, 193, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 192, 203, 0.1) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Плавные переходы для всех элементов */
+* {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Специальные эффекты для изображений */
+.registry-map,
+.dinner-map {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.registry-map:hover,
+.dinner-map:hover {
+  transform: scale(1.05);
+}
+
+/* Нежные тени для всех карточек */
+.hero-content,
+.registry-content,
+.dinner-content,
+.form-content {
+  position: relative;
+}
+
+.hero-content::after,
+.registry-content::after,
+.dinner-content::after,
+.form-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 100%
+  );
+  border-radius: 32px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-content:hover::after,
+.registry-content:hover::after,
+.dinner-content:hover::after,
+.form-content:hover::after {
+  opacity: 1;
+}
+
+#hero {
+  position: relative;
+}
+
+#hero .container {
+  padding-top: 380px;
+}
+
+.hero-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 150px);
+  object-fit: cover;
+  object-position: center top;
+  z-index: -1;
+}
+
+.hero-photo-mobile {
+  display: none;
+}
+
+.hero-content {
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+#hero .hero-title {
+  margin: 0;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 46px;
+  font-weight: 600;
+  line-height: auto;
+  color: #000;
+  text-align: center;
+}
+
+#hero .hero-text {
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: auto;
+  color: #000;
+  text-align: center;
+}
+
+#hero .hero-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  font-family: "Sofia Sans", sans-serif;
+}
+
+#hero .hero-date .month,
+#hero .hero-date .year {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 8px 0;
+
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+#hero .hero-date .day {
+  font-size: 114px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+#hero .hero-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+#hero .hero-location-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#hero .hero-location-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: auto;
+  color: #000;
+
+  padding: 8px 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+#hero .hero-location-item-top img {
+  width: 28px;
+  height: 28px;
+}
+
+#hero .hero-location-item-bottom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#hero .hero-location-item-bottom p:first-child {
+  padding: 16px 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: auto;
+  color: #000;
+}
+
+#hero .hero-location-item-bottom p:last-child {
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 44px;
+  font-weight: 300;
+  line-height: auto;
+  color: #000;
+}
+
+#registry {
+  margin-top: 64px;
+}
+
+#registry .registry-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.25);
+}
+
+#registry .registry-title {
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: auto;
+  color: #000;
+
+  padding-bottom: 32px;
+}
+
+#registry .registry-map {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 32px;
+}
+
+#dinner {
+  margin-top: 64px;
+}
+
+#dinner .dinner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.25);
+}
+
+#dinner .dinner-title {
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: auto;
+  color: #000;
+
+  padding-bottom: 32px;
+}
+
+#dinner .dinner-map {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 32px;
+}
+
+#form {
+  margin-top: 64px;
+}
+
+#form .form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 32px;
+}
+
+#form .form-title {
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: auto;
+  color: #000;
+}
+
+#form h3 {
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: auto;
+  color: #000;
+  text-align: center;
+}
+
+#form .form-iframe {
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  background-color: #fff;
+  padding: 32px;
+
+  border-radius: 32px;
+}
+
+@media (max-width: 980px) {
+  body {
+    padding-bottom: 160px;
+  }
+
+  #hero .container {
+    padding-top: 70vw;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  #hero .hero-photo {
+    width: 100%;
+    height: auto;
+  }
+
+  #hero .hero-photo-mobile {
+    display: block;
+  }
+
+  #hero .hero-photo-desktop {
+    display: none;
+  }
+
+  .hero-content {
+    padding: 24px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+
+  #hero .hero-title {
+    font-size: 24px;
+  }
+
+  #hero .hero-text {
+    font-size: 18px;
+  }
+
+  #hero .hero-text br {
+    display: none;
+  }
+
+  #hero .hero-date {
+    gap: 16px;
+  }
+
+  #hero .hero-date .month,
+  #hero .hero-date .year {
+    font-size: 18px;
+  }
+
+  #hero .hero-date .day {
+    font-size: 72px;
+  }
+
+  #hero .hero-location {
+    gap: 16px;
+    flex-direction: column;
+  }
+
+  #hero .hero-location-item-top {
+    font-size: 18px;
+  }
+
+  #hero .hero-location-item-bottom {
+    font-size: 18px;
+    flex-direction: column-reverse;
+  }
+
+  #hero .hero-location-item-bottom p:first-child {
+    font-size: 18px;
+    display: none;
+  }
+
+  #registry {
+    margin-top: 32px;
+    padding: 0 16px;
+  }
+
+  #registry .registry-content {
+    max-width: 700px;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  #registry .registry-title {
+    font-size: 32px;
+    padding-bottom: 16px;
+  }
+
+  #registry .registry-map {
+    border-radius: 16px;
+  }
+
+  #dinner {
+    margin-top: 32px;
+    padding: 0 16px;
+  }
+
+  #dinner .dinner-content {
+    max-width: 700px;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+  } 
+
+  #dinner .dinner-title {
+    font-size: 32px;
+    padding-bottom: 16px;
+  }
+
+  #dinner .dinner-map {
+    border-radius: 16px;
+  }
+
+  #form {
+    margin-top: 32px;
+    padding: 0 16px;
+  }
+
+  #form .form-content {
+    gap: 16px;
+  }
+
+  #form .form-title {
+    font-size: 32px;
+  }
+  
+  #form h3 {
+    font-size: 18px;
+    padding-bottom: 16px;
+  }
+
+  #form h3 br {
+    display: none;
+  }
+
+  #form .form-iframe {
+    padding: 16px;
+    border-radius: 16px;
+  }
+}
